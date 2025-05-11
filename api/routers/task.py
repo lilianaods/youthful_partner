@@ -14,8 +14,11 @@ async def list_tasks():
     ]
 
 @router.post("/tasks")
-async def create_task():
-    pass
+async def create_task(task_body: task_schema.TaskCreate):
+    return task_schema.TaskCreateResponse(
+        id=3,
+        **task_body.dict(),
+    )
 
 @router.put("/tasks/{task_id}")
 async def update_task():
