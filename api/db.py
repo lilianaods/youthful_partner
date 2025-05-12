@@ -7,7 +7,7 @@ async_engine = create_async_engine(
     ASYNC_DATABASE_URL,
     echo=True,
 )
-async_session = sessionmaker(autoCommit=False, autoflush=False, bind=async_engine, class_=AsyncSession)
+async_session = sessionmaker(autocommit=False, autoflush=False, bind=async_engine, class_=AsyncSession)
 Base = declarative_base()
 async def get_db():
     async with async_session() as session:
